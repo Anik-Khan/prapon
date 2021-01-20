@@ -2,4 +2,5 @@
     <string name="app_name">Prapon</string>
     <string name="search_restaurant">Search Restaurant</string>
     <string name="loading">Loading...</string>
+    <string name="click_to_proceed">Click to Proceed</string>
 </resources>

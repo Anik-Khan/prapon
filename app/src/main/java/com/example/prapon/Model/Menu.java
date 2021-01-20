@@ -2,8 +2,18 @@ package com.example.prapon.Model;
 
 public class Menu {
     private String name, details, amount, topicName;
+    private boolean isSelected;
 
     public Menu() {
+        isSelected=false;
+    }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
     }
 
     public String getName() {

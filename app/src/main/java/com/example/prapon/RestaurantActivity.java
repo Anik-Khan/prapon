@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,9 +23,11 @@ import com.squareup.picasso.Picasso;
 
 public class RestaurantActivity extends AppCompatActivity {
 
-    Restaurant restaurantObj;
+    public static Restaurant restaurantObj;
     private ImageView restaurantImg;
     private TextView nameTv, ratingTv, addressTv;
+    public static Button proceedBtn;
+    public static int itemCount = 0;
 
     private FrameLayout menuFrameLayout;
     private TabLayout tabLayout;
@@ -42,6 +45,14 @@ public class RestaurantActivity extends AppCompatActivity {
         ratingTv = findViewById(R.id.rRating);
         addressTv = findViewById(R.id.rAddress);
         restaurantImg = findViewById(R.id.rPic);
+        proceedBtn = findViewById(R.id.btnProceed);
+
+
+        if(itemCount!=0){
+            proceedBtn.setVisibility(View.VISIBLE);
+        }else{
+            proceedBtn.setVisibility(View.GONE);
+        }
 
         setInitData();
 
@@ -54,7 +65,7 @@ public class RestaurantActivity extends AppCompatActivity {
             tabLayout.addTab(tab);
         }
 
-        fragment = new MenuFragment(restaurantObj.getMenuTopic().get(0));
+        fragment = new MenuFragment(restaurantObj.getMenuTopic().get(0),restaurantObj.getMenu());
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.menuFlayout, fragment);
@@ -65,7 +76,7 @@ public class RestaurantActivity extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 fragment = null;
-                fragment = new MenuFragment(restaurantObj.getMenuTopic().get(tab.getPosition()));
+                fragment = new MenuFragment(restaurantObj.getMenuTopic().get(tab.getPosition()),restaurantObj.getMenu());
 
                 FragmentManager fm = getSupportFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
