@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".RestaurantActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            android:background="@color/black">
+
+            <ImageView
+                android:id="@+id/rPic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.6" />
+
+            <TextView
+                android:id="@+id/rName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/rRating"
+                android:layout_centerHorizontal="true"
+                android:text="@string/loading"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15ssp" />
+
+            <TextView
+                android:id="@+id/rRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/loading"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11ssp" />
+
+            <TextView
+                android:id="@+id/rAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rRating"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_centerHorizontal="true"
+                android:text="@string/loading"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13ssp" />
+        </RelativeLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/menuTabL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/top"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@color/white"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/blue"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/blue"
+            app:tabTextAppearance="@style/TextAppearance.AppCompat.Small"
+            app:tabTextColor="@color/colorSecondaryText" />
+
+        <FrameLayout
+            android:id="@+id/menuFlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/menuTabL" />
+    </RelativeLayout>
+
+</ScrollView>
